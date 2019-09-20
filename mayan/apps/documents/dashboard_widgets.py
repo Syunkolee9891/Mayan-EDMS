@@ -21,7 +21,7 @@ from .statistics import (
 
 class DashboardWidgetDocumentPagesTotal(DashboardWidgetNumeric):
     icon_class = icon_dashboard_pages_per_month
-    label = _('Total pages')
+    label = _('Applicants Dashboards')
     link = reverse_lazy(
         viewname='statistics:statistic_detail', kwargs={
             'slug': 'total-document-pages-at-each-month'
@@ -44,7 +44,7 @@ class DashboardWidgetDocumentPagesTotal(DashboardWidgetNumeric):
 
 class DashboardWidgetDocumentsTotal(DashboardWidgetNumeric):
     icon_class = icon_dashboard_total_document
-    label = _('Total documents')
+    label = _('Applicants Dashboards')
     link = reverse_lazy(viewname='documents:document_list')
 
     def render(self, request):
@@ -63,7 +63,7 @@ class DashboardWidgetDocumentsTotal(DashboardWidgetNumeric):
 
 class DashboardWidgetDocumentsInTrash(DashboardWidgetNumeric):
     icon_class = icon_dashboard_documents_in_trash
-    label = _('Documents in trash')
+    label = _('Applicants Dashboards')
     link = reverse_lazy(viewname='documents:document_list_deleted')
 
     def render(self, request):
@@ -82,7 +82,7 @@ class DashboardWidgetDocumentsInTrash(DashboardWidgetNumeric):
 
 class DashboardWidgetDocumentsTypesTotal(DashboardWidgetNumeric):
     icon_class = icon_dashboard_document_types
-    label = _('Document types')
+    label = _('Applicants Dashboards')
     link = reverse_lazy(viewname='documents:document_type_list')
 
     def render(self, request):
@@ -101,7 +101,7 @@ class DashboardWidgetDocumentsTypesTotal(DashboardWidgetNumeric):
 
 class DashboardWidgetDocumentsNewThisMonth(DashboardWidgetNumeric):
     icon_class = icon_dashboard_new_documents_this_month
-    label = _('New documents this month')
+    label = _('Applicants Dashboards')
     link = reverse_lazy(
         viewname='statistics:statistic_detail', kwargs={
             'slug': 'new-documents-per-month'
@@ -115,7 +115,7 @@ class DashboardWidgetDocumentsNewThisMonth(DashboardWidgetNumeric):
 
 class DashboardWidgetDocumentsPagesNewThisMonth(DashboardWidgetNumeric):
     icon_class = icon_dashboard_pages_per_month
-    label = _('New pages this month')
+    label = _('Applicants Dashboards')
     link = reverse_lazy(
         viewname='statistics:statistic_detail', kwargs={
             'slug': 'new-document-pages-per-month'
@@ -128,14 +128,14 @@ class DashboardWidgetDocumentsPagesNewThisMonth(DashboardWidgetNumeric):
 
 
 class DashboardWidgetDocumentsApplicantsDashboards(DashboardWidgetNumeric):
-    icon_class = icon_dashboard_applicants_dashboards
-    label = _('Applicants Dashboards')
-    link = reverse_lazy(
-        viewname='statistics:statistic_detail', kwargs={
-            'slug': 'applicants-dashboards'
-        }
-    )
+	    icon_class = icon_dashboard_applicants_dashboards
+	    label = _('Applicants Dashboards')
+	    link = reverse_lazy(
+	        viewname='statistics:statistic_detail', kwargs={
+	            'slug': 'applicants-dashboards'
+	        }
+	    )
 
-    def render(self, request):
-        self.count = applicants_dashboards(user=request.user)
-        return super(DashboardWidgetDocumentsApplicantsDashboards, self).render(request)
+	    def render(self, request):
+	        self.count = applicants_dashboards(user=request.user)
+	        return super(DashboardWidgetDocumentsApplicantsDashboards, self).render(request)
