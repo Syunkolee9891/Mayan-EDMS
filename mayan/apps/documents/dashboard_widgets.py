@@ -125,3 +125,17 @@ class DashboardWidgetDocumentsPagesNewThisMonth(DashboardWidgetNumeric):
     def render(self, request):
         self.count = new_document_pages_this_month(user=request.user)
         return super(DashboardWidgetDocumentsPagesNewThisMonth, self).render(request)
+
+
+class DashboardWidgetDocumentsApplicantsDashboards(DashboardWidgetNumeric):
+    icon_class = icon_dashboard_applicants_dashboards
+    label = _('Applicants Dashboards')
+    link = reverse_lazy(
+        viewname='statistics:statistic_detail', kwargs={
+            'slug': 'applicants-dashboards'
+        }
+    )
+
+    def render(self, request):
+        self.count = applicants_dashboards(user=request.user)
+        return super(DashboardWidgetDocumentsApplicantsDashboards, self).render(request)
